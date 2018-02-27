@@ -15,10 +15,6 @@ Logger *Logger::getLogger() {
     if (Logger::logger == nullptr) {
         Logger::logger = new Logger();
     }
-#ifdef _WIN32
-    // 设置windows下控制台输出编码为UTF-8
-    system("chcp 65001");
-#endif
     return Logger::logger;
 }
 
@@ -115,4 +111,11 @@ void Logger::fmtCurTime() {
     time(&tt);
     // 格式化当前时间
     strftime(timeFmtBuf, TIME_FMT_BUF_MAX_SIZE, "%F %T", localtime(&tt));
+}
+
+Logger::Logger() {
+#ifdef _WIN32
+    // 设置windows下控制台输出编码为UTF-8
+    system("chcp 65001");
+#endif
 }

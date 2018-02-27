@@ -32,7 +32,7 @@ class Logger {
     void showTime(const string &str);
 
   private:
-    Logger() = default;
+    Logger();
     static Logger *logger;
     enum LoggerLevel loggerLevel = LoggerLevel::debug;
 
