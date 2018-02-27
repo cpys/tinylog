@@ -15,6 +15,10 @@ Logger *Logger::getLogger() {
     if (Logger::logger == nullptr) {
         Logger::logger = new Logger();
     }
+#ifdef _WIN32
+    // 设置windows下控制台输出编码为UTF-8
+    system("chcp 65001");
+#endif
     return Logger::logger;
 }
 

@@ -6,8 +6,6 @@
 
 int main() {
     Logger *logger = Logger::getLogger();
-    system("chcp 65001");
     logger->debug("测试程序开始");
-
     return 0;
 }
